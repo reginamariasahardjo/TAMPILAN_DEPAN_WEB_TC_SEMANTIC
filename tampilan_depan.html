@@ -1,0 +1,362 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sekolah Cinta Kasih — Halaman Depan (Demo Semantic)</title>
+  <meta name="description" content="Demo semantic HTML homepage - hero, profile, program, fitur, testimonial, kontak, footer." />
+  <style>
+    :root{
+      --green:#1d5a3f;
+      --muted:#8b8b8b;
+      --accent:#1d5a3f;
+      --bg:#ffffff;
+      --card:#f8f8fb;
+      --container:1100px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#222;
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block;height:auto}
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+    header.topbar{background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:40}
+    .topbar .top-strip{display:flex;align-items:center;justify-content:space-between;padding:10px 0;font-size:14px}
+    .contacts{display:flex;gap:16px;align-items:center}
+    .contact-item{display:flex;gap:8px;align-items:center;color:var(--muted)}
+    .contact-item .icon{width:20px;height:20px;display:inline-block;background:#e9e9e9;border-radius:50%}
+    nav.mainnav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{font-weight:700;color:var(--green)}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{color:var(--muted);padding:6px 8px;border-radius:6px}
+    .nav-links a:hover{color:#111}
+
+    .mobile-toggle{display:none;border:0;background:transparent;font-size:18px}
+
+    .hero{padding:48px 0}
+    .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:start}
+    .hero h1{font-size:48px;margin:0 0 12px}
+    .hero p.lead{color:var(--muted);max-width:56ch}
+    .cta{margin-top:20px;display:flex;gap:12px;align-items:center}
+    .btn{display:inline-block;padding:12px 20px;border-radius:12px;background:var(--accent);color:#fff;font-weight:600}
+    .btn.ghost{background:transparent;border:1px solid #ddd;color:#333}
+
+    .features{margin:40px 0}
+    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:#fff;border-radius:12px;padding:22px;box-shadow:0 8px 20px rgba(20,20,20,.06);min-height:110px;display:flex;align-items:center;gap:14px}
+    .card .ic{width:48px;height:48px;background:linear-gradient(135deg,#f0f0ff,#fff);border-radius:10px;display:flex;align-items:center;justify-content:center}
+
+    .two-col{display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:start;padding:40px 0}
+    .section-title{color:var(--muted);font-weight:600;margin-bottom:8px}
+    .big-title{font-size:36px;margin:0 0 12px;font-weight:800}
+
+    .profile p{color:var(--muted);max-width:60ch}
+
+    .check-list{list-style:none;padding:0;margin:16px 0 0}
+    .check-list li{padding:8px 0;color:var(--muted) }
+
+    .video-placeholder{background:#ddd;height:300px;border-radius:12px;display:flex;align-items:center;justify-content:center;position:relative}
+    .video-placeholder .side-tab{position:absolute;left:0;top:66px;background:var(--accent);color:#fff;padding:14px 10px;border-radius:10px 0 0 10px;writing-mode:vertical-rl;text-orientation:mixed;font-size:13px}
+
+    .testimonials{background:var(--green);color:#fff;padding:60px 0;margin-top:40px}
+    .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .testimonial-card{background:rgba(255,255,255,0.12);padding:24px;border-radius:12px;min-height:140px}
+
+    .affiliations{text-align:center;padding:26px 0;color:var(--muted)}
+
+    footer.sitefooter{background:var(--green);color:#fff;padding:40px 0 14px}
+    .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+    .footer-grid h4{margin:0 0 12px}
+    .footer-grid p, .footer-grid a{color:rgba(255,255,255,0.9)}
+    .copyright{background:#111;padding:14px;text-align:center;color:#bbb;margin-top:8px}
+
+    .to-top{position:fixed;right:18px;bottom:18px;background:#333;color:#fff;padding:10px;border-radius:8px;border:none;display:inline-flex;align-items:center;justify-content:center;z-index:70}
+
+    @media(max-width:980px){
+      .hero-grid,.two-col{grid-template-columns:1fr}
+      .feature-grid{grid-template-columns:1fr}
+      .testimonial-grid{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .mobile-toggle{display:inline-block}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <div class="container top-strip" aria-hidden="false">
+      <div class="contacts" aria-label="Kontak singkat">
+        <div class="contact-item" title="WhatsApp">
+          <span class="icon" aria-hidden="true"></span>
+          <a href="https://wa.me/6281293707170" aria-label="WhatsApp +62 812 9370 7170">WhatsApp +62 812 9370 7170</a>
+        </div>
+        <div class="contact-item" title="Email">
+          <span class="icon" aria-hidden="true"></span>
+          <a href="mailto:info@cintakasihtzuchi.sch.id">info@cintakasihtzuchi.sch.id</a>
+        </div>
+      </div>
+
+      <div class="auth" style="color:var(--muted);font-size:14px">
+        <a href="#" style="color:var(--muted)">Sign in</a>
+      </div>
+    </div>
+
+    <nav class="container mainnav" role="navigation" aria-label="Main navigation">
+      <div class="brand" aria-label="Nama Sekolah">Sekolah Cinta Kasih Tzu Chi</div>
+
+      <button class="mobile-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Buka menu">
+        ☰
+      </button>
+
+      <div id="primary-menu" class="nav-links" role="menubar" aria-hidden="false">
+        <a role="menuitem" href="#home">Home</a>
+        <a role="menuitem" href="#about">About Us</a>
+        <a role="menuitem" href="#our-school">Our School</a>
+        <a role="menuitem" href="#online-ppdb">Online PPDB</a>
+        <a role="menuitem" href="#library">Library</a>
+        <a role="menuitem" href="#link">Link</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="home" role="main">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div>
+          <p class="section-title">Sekolah Cinta Kasih Tzu Chi</p>
+          <h1 id="hero-title">Profile Sekolah</h1>
+          <p class="lead">Sekolah Cinta Kasih Tzu Chi memberikan pendidikan yang holistik, menyediakan sarana dan prasarana untuk mencetak lulusan yang berbudi pekerti luhur, bijaksana, sehat jasmani, dan memiliki kehidupan sosial yang baik dan berbudaya humanis.</p>
+          <div class="cta">
+            <a class="btn" href="#our-school">Selengkapnya</a>
+            <a class="btn ghost" href="#play" aria-label="Putar video">Play Video ▶</a>
+          </div>
+        </div>
+
+        <aside aria-labelledby="video-aside" role="complementary">
+          <figure class="video-placeholder" aria-hidden="false" aria-label="Video atau media presentasi">
+            <div class="side-tab">SEKOLAH CINTA KASIH TZU CHI</div>
+            <img class="lazy" data-src="SCKTC.jpg" alt="Media profile sekolah (belum dimuat)" width="420" height="300" />
+          </figure>
+        </aside>
+      </div>
+    </section>
+
+    <section class="features container" aria-labelledby="features-title">
+      <h2 id="features-title" class="section-title">Keunggulan</h2>
+      <div class="feature-grid" role="list">
+        <article class="card" role="listitem" aria-labelledby="f1">
+          <div class="ic" aria-hidden="true">🎓</div>
+          <div>
+            <h3 id="f1">Learn Skills</h3>
+            <p style="color:var(--muted);margin:6px 0 0">Pembelajaran berfokus pada keterampilan dan kreativitas.</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="f2">
+          <div class="ic" aria-hidden="true">👩‍🏫</div>
+          <div>
+            <h3 id="f2">Expert Teachers</h3>
+            <p style="color:var(--muted);margin:6px 0 0">Guru profesional & berkualifikasi.</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="f3">
+          <div class="ic" aria-hidden="true">📜</div>
+          <div>
+            <h3 id="f3">Certificates</h3>
+            <p style="color:var(--muted);margin:6px 0 0">Sertifikat yang memiliki nilai di banyak tempat.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <hr aria-hidden="true" style="border:none;border-top:1px solid #eee;margin:30px 0">
+
+    <section id="our-school" class="two-col container" aria-labelledby="program-title">
+      <div class="profile">
+        <p class="section-title">Sekolah Cinta Kasih Tzu Chi</p>
+        <h2 id="program-title" class="big-title">Program Ren Wen</h2>
+        <p>Pendidikan budaya humanis. Sekolah bertujuan mengembangkan kemampuan setiap siswa dari segi pemikiran (mind), jasmani (body), kecerdasan (intelligence), serta kepekaan terhadap nilai kemanusiaan.</p>
+
+        <p style="margin-top:12px;color:var(--muted)">Keunikan dan Keunggulan Sekolah Cinta Kasih Tzu Chi ada pada:</p>
+        <ul class="check-list" aria-label="Daftar keunggulan">
+          <li>✔ Pendidikan Cara Hidup</li>
+          <li>✔ Pendidikan Kepribadian</li>
+          <li>✔ Pendidikan Cinta Kasih</li>
+          <li>✔ Pendidikan Kehidupan</li>
+        </ul>
+
+        <p style="margin-top:18px">
+          <a class="btn" href="#program-details">Selengkapnya</a>
+        </p>
+      </div>
+
+      <aside aria-label="Ilustrasi program">
+        <figure style="background:#f3f5f9;padding:16px;border-radius:12px">
+          <img class="lazy" data-src="SCKTC2.jpg" alt="Ilustrasi Program Ren Wen (belum dimuat)" width="420" height="320"/>
+        </figure>
+      </aside>
+    </section>
+
+    <section class="affiliations container" aria-labelledby="aff-title">
+      <h3 id="aff-title" class="section-title">Affiliations</h3>
+      <p style="color:var(--muted)">Logo/partner sekolah (placeholder).</p>
+      <div style="height:60px;margin-top:12px;display:flex;align-items:center;gap:20px;justify-content:center">
+        <figure aria-hidden="true" style="width:120px;height:40px;background:#eee;border-radius:6px"></figure>
+        <figure aria-hidden="true" style="width:120px;height:40px;background:#eee;border-radius:6px"></figure>
+        <figure aria-hidden="true" style="width:120px;height:40px;background:#eee;border-radius:6px"></figure>
+      </div>
+    </section>
+
+    <section class="testimonials" aria-labelledby="testi-title">
+      <div class="container">
+        <h2 id="testi-title" style="text-align:center;font-size:36px;margin:0 0 18px">Apa yang mereka katakan?</h2>
+        <div class="testimonial-grid" role="list">
+          <article class="testimonial-card" role="listitem">
+            <blockquote>
+              "Sekolah Cinta Kasih Tzu Chi adalah tempat yang memelihara cinta, kebaikan, dan pengetahuan..."
+            </blockquote>
+            <p style="margin-top:12px;font-weight:700">— Orang Tua Murid</p>
+          </article>
+
+          <article class="testimonial-card" role="listitem">
+            <blockquote>
+              "Mengajarkan nilai-nilai kemanusiaan dan menginspirasi kami untuk bertindak demi kebaikan..."
+            </blockquote>
+            <p style="margin-top:12px;font-weight:700">— Alumni</p>
+          </article>
+
+          <article class="testimonial-card" role="listitem">
+            <blockquote>
+              "Memberikan pengalaman belajar yang berharga, menekankan nilai moral dan etika..."
+            </blockquote>
+            <p style="margin-top:12px;font-weight:700">— Guru</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" aria-label="Highlight">
+      <div style="padding:34px 0">
+        <div style="text-align:center;margin-bottom:18px">
+          <p class="section-title">Our Highlights</p>
+        </div>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <div class="card" style="width:320px;min-height:120px">Learn Skills</div>
+          <div class="card" style="width:320px;min-height:120px">Expert Teachers</div>
+          <div class="card" style="width:320px;min-height:120px">Certificates</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" aria-labelledby="contact-title" style="padding:36px 0">
+      <h3 id="contact-title" class="section-title">Contact</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start">
+        <address style="font-style:normal;color:var(--muted)">
+          <strong>Call Anytime</strong><br/>
+          <a href="tel:+622154397462">+62 21 5439 7462</a><br/><br/>
+
+          <strong>Send Email</strong><br/>
+          <a href="mailto:info@cintakasihtzuchi.sch.id">info@cintakasihtzuchi.sch.id</a><br/><br/>
+
+          <strong>Visit Office</strong><br/>
+          Jl. Kamal Raya Outer Ring Road No.20<br/>
+          Cengkareng Jakarta Barat 11730
+        </address>
+
+        <aside aria-label="Quick links">
+          <h4>Links</h4>
+          <ul style="list-style:none;padding:0;margin:0;color:var(--muted)">
+            <li><a href="#">Tzu Chi International</a></li>
+            <li><a href="#">Tzu Chi Indonesia</a></li>
+            <li><a href="#">DAAI TV</a></li>
+            <li><a href="#">Sekolah Singkawang</a></li>
+            <li><a href="#">Jing Si Books & Cafe</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="sitefooter" role="contentinfo">
+    <div class="container footer-grid" aria-label="Footer content">
+      <div>
+        <h4>Contact</h4>
+        <p>Call Anytime<br/><a href="tel:+622154397462">+62 21 5439 7462</a></p>
+      </div>
+      <div>
+        <h4>Links</h4>
+        <p><a href="#">Tzu Chi Indonesia</a></p>
+      </div>
+      <div>
+        <h4>Kata Perenungan</h4>
+        <p style="color:rgba(255,255,255,0.9)">“Pendidikan anak adalah mengajarkan tata krama... ” — Master Cheng Yen</p>
+      </div>
+    </div>
+
+    <div class="copyright">© Copyright 2024 Sekolah Cinta Kasih Tzu Chi</div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Kembali ke atas" title="Kembali ke atas" hidden>↑</button>
+
+  <script>
+    (function(){
+      const toggle = document.querySelector('.mobile-toggle');
+      const menu = document.getElementById('primary-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        menu.style.display = expanded ? '' : 'flex';
+      });
+    })();
+
+    (function(){
+      const btn = document.getElementById('toTop');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+          btn.hidden = false;
+        } else {
+          btn.hidden = true;
+        }
+      });
+      btn.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+    })();
+
+    (function(){
+      const lazyImgs = document.querySelectorAll('img.lazy');
+      if('IntersectionObserver' in window){
+        const obs = new IntersectionObserver((entries, observer) => {
+          entries.forEach(e => {
+            if (e.isIntersecting){
+              const img = e.target;
+              const src = img.getAttribute('data-src');
+              if (src){
+                img.src = src;
+                img.removeAttribute('data-src');
+                img.classList.remove('lazy');
+              }
+              observer.unobserve(img);
+            }
+          });
+        }, {rootMargin:'100px'});
+        lazyImgs.forEach(i=>obs.observe(i));
+      } else {
+        lazyImgs.forEach(img => {
+          const src = img.getAttribute('data-src');
+          if (src) img.src = src;
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
+
+<!-- By: Regina Maria Sahardjo XII PPLG 1 -->
